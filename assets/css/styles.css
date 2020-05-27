@@ -113,6 +113,14 @@ body {
   background-position: top -2.5rem right -13rem;
 }
 
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
 @media screen and (min-width: 1000px) {
   body {
     padding-top: 4.5rem;
@@ -186,18 +194,6 @@ body {
   visibility: hidden;
 }
 
-.chk-payment:checked ~ main .plan-price__monthly {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-}
-
-.chk-payment:checked ~ main .plan-price__annually {
-  position: initial;
-  left: initial;
-  opacity: 1;
-}
-
 .chk-payment:checked ~ .lbl-payment .lbl-toggle::after {
   right: 2.25rem;
 }
@@ -256,7 +252,9 @@ body {
 .plan-price__annually {
   position: absolute;
   left: -9999px;
-  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 .plan-price {
@@ -301,6 +299,22 @@ body {
   border-color: var(--color-neutral-1);
   background-color: transparent;
   color: var(--color-neutral-1);
+}
+
+.chk-payment:checked ~ main .plan-price__monthly {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.chk-payment:checked ~ main .plan-price__annually {
+  position: initial;
+  left: initial;
+  height: initial;
+  width: initial;
+  overflow: initial;
 }
 
 @media screen and (max-width: 374px) {
