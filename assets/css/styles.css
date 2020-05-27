@@ -1,0 +1,351 @@
+/* styles.scss
+   Styles for Intro Component With Signup challenge (Newbie) from Frontend Mentor */
+/*  Modern CSS Reset
+    https://github.com/hankchizljaw/modern-css-reset
+*/
+/* Box sizing rules */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1rem;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Add outline to focussed things */
+a:focus, button:focus, input:focus {
+  outline: 2px dotted var(--color-neutral-2) !important;
+}
+
+/* Variables */
+:root {
+  font-size: 15px;
+  --font-sans: "Montserrat", "Helvetica", "Arial", sans-serif;
+  --color-gradient-1: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+  --color-gradient-2: hsla(236, 72%, 79%, 50%), hsla(237, 63%, 64%, 50%);
+  --color-primary-1: hsl(237, 63%, 64%);
+  --color-neutral-1: hsl(240, 78%, 98%);
+  --color-neutral-2: hsl(234, 14%, 74%);
+  --color-neutral-3: hsl(233, 13%, 49%);
+  --color-neutral-4: hsl(232, 13%, 33%);
+}
+
+body {
+  position: relative;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  padding: 4rem 1.5rem;
+  background-color: var(--color-neutral-1);
+  background-image: url("../images/bg-top.svg");
+  background-repeat: no-repeat;
+  background-position: top -2.5rem right -13rem;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+    background-position: top -2.5rem right 0;
+  }
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../images/bg-bottom.svg");
+    background-repeat: no-repeat;
+    background-position: bottom 0 left 0;
+    z-index: -1;
+  }
+}
+/* Header styles */
+.page-header {
+  text-align: center;
+  letter-spacing: 1px;
+  color: var(--color-neutral-4);
+}
+
+.lbl-payment {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 16rem;
+  margin: 2.5rem auto 4rem;
+  color: var(--color-neutral-2);
+}
+
+.lbl-payment__monthly, .lbl-payment__annually {
+  transition: color 0.3s ease-in-out;
+}
+
+.lbl-payment__monthly {
+  color: var(--color-neutral-4);
+}
+
+.lbl-toggle {
+  flex-shrink: 0;
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  background: linear-gradient(135deg, var(--color-gradient-1));
+  border-radius: 1rem;
+}
+.lbl-toggle:hover {
+  background: linear-gradient(135deg, var(--color-gradient-2));
+  cursor: pointer;
+}
+.lbl-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: var(--color-neutral-1);
+  border-radius: 50%;
+  transition: right 0.3s ease-in-out;
+}
+
+.chk-payment {
+  visibility: hidden;
+}
+
+.chk-payment:checked ~ main .plan-price__monthly {
+  display: none;
+}
+
+.chk-payment:checked ~ main .plan-price__annually {
+  display: block;
+}
+
+.chk-payment:checked ~ .lbl-payment .lbl-toggle::after {
+  right: 2.25rem;
+}
+
+.chk-payment:checked ~ .lbl-payment .lbl-payment__annually {
+  color: var(--color-neutral-4);
+}
+
+.chk-payment:checked ~ .lbl-payment .lbl-payment__monthly {
+  color: var(--color-neutral-2);
+}
+
+@media screen and (max-width: 260px) {
+  .lbl-payment {
+    flex-flow: column nowrap;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .lbl-payment {
+    margin-top: 1rem;
+  }
+}
+/* Main section styles */
+.card {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  padding: 2rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  border-radius: 0.75rem;
+  background-color: white;
+  color: var(--color-neutral-4);
+  box-shadow: 0 0 2rem 0 rgba(109, 112, 141, 0.2);
+}
+
+.card--highlight {
+  background-color: none;
+  background: linear-gradient(180deg, var(--color-gradient-1));
+  color: var(--color-neutral-1);
+}
+
+.card-header {
+  font-size: 1.2rem;
+}
+
+.plan-details {
+  list-style: none;
+}
+
+.plan-detail {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.plan-price__annually {
+  display: none;
+}
+
+.plan-price {
+  line-height: 1.1;
+  font-size: 5rem;
+  letter-spacing: -2px;
+  padding-bottom: 2rem;
+}
+
+.price-curr {
+  font-size: 2.5rem;
+  vertical-align: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.plan-link {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem;
+  background: linear-gradient(90deg, var(--color-gradient-1));
+  color: #fefefe;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 0.5rem;
+  letter-spacing: 1px;
+}
+.plan-link:hover {
+  border-color: var(--color-neutral-3);
+  background: none;
+  color: var(--color-primary-1);
+}
+
+.card--highlight .plan-link {
+  background: none;
+  background-color: var(--color-neutral-1);
+  color: var(--color-primary-1);
+}
+.card--highlight .plan-link:hover {
+  border-color: var(--color-neutral-1);
+  background-color: transparent;
+  color: var(--color-neutral-1);
+}
+
+@media screen and (max-width: 374px) {
+  .plan-price {
+    font-size: 2.5rem;
+  }
+
+  .price-curr {
+    font-size: 1.75rem;
+    vertical-align: 0.2rem;
+    margin-right: 0.25rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .page-main {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    margin: 0 0 3rem;
+    max-width: 23rem;
+  }
+
+  .card--highlight {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .plan-price {
+    font-size: 4.5rem;
+    margin-top: 0.5rem;
+    letter-spacing: -3px;
+  }
+}
+/* Footer Styles */
+.page-footer {
+  text-align: center;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--color-neutral-3);
+}
+
+.attribution a:hover {
+  color: var(--color-neutral-4);
+}

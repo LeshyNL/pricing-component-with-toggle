@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Frontend Mentor | Pricing Component with Toggle</title>
+  <link rel='icon' type='image/png' sizes='32x32' href='./assets/images/favicon-32x32.png'>
+  <link rel='stylesheet' href='./assets/css/styles.css'>
+</head>
+<body>
+  
+  <header class='page-header'>
+    <h1 class='page-title'>Our Pricing</h1>
+  </header>
+
+  <input type='checkbox' id='chk-payment' class='chk-payment' aria-hidden='true'>
+  <label class='lbl-payment' for='chk-payment' aria-hidden='true'>
+    <span class='lbl-payment__annually'>Annually</span>
+    <span class='lbl-toggle'></span>
+    <span class='lbl-payment__monthly'>Monthly</span>
+  </label>
+
+  <main class='page-main'>
+    <div class='card card__basic'>
+      <h2 class='card-header'>Basic</h2>
+      <ul class='plan-details'>
+        <li class='plan-detail plan-price plan-price__monthly' aria-label='Monthly Price'><span class='price-curr'>&dollar;</span>19.99</li>
+        <li class='plan-detail plan-price plan-price__annually' aria-label='Annual Price'><span class='price-curr'>&dollar;</span>199.99</li>
+        <li class='plan-detail plan-storage'>500 GB Storage</li>
+        <li class='plan-detail plan-users'>2 Users Allowed</li>
+        <li class='plan-detail plan-data'>Send up to 3 GB</li>
+      </ul>
+      <a class='plan-link' href='#'>Learn More</a>
+    </div>
+
+    <div class='card card--highlight card__professional'>
+      <h2 class='card-header'>Professional</h2>
+      <ul class='plan-details'>
+        <li class='plan-detail plan-price plan-price__monthly' aria-label='Monthly Price'><span class='price-curr'>&dollar;</span>24.99</li>
+        <li class='plan-detail plan-price plan-price__annually' aria-label='Annual Price'><span class='price-curr'>&dollar;</span>249.99</li>
+        <li class='plan-detail plan-storage'>1 TB Storage</li>
+        <li class='plan-detail plan-users'>5 Users Allowed</li>
+        <li class='plan-detail plan-data'>Send up to 10 GB</li>
+      </ul>
+      <a class='plan-link' href='#'>Learn More</a>
+    </div>
+
+    <div class='card card__basic'>
+      <h2 class='card-header'>Master</h2>
+      <ul class='plan-details'>
+        <li class='plan-detail plan-price plan-price__monthly' aria-label='Monthly Price'><span class='price-curr'>&dollar;</span>39.99</li>
+        <li class='plan-detail plan-price plan-price__annually' aria-label='Annual Price'><span class='price-curr'>&dollar;</span>399.99</li>
+        <li class='plan-detail plan-storage'>2 TB Storage</li>
+        <li class='plan-detail plan-users'>10 Users Allowed</li>
+        <li class='plan-detail plan-data'>Send up to 20 GB</li>
+      </ul>
+      <a class='plan-link' href='#'>Learn More</a>
+    </div>
+    
+    </div>
+  </main>
+  
+  <footer class='page-footer'>
+    <p class='attribution'>
+      Challenge by <a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>Frontend Mentor</a>. 
+      Coded by <a href='https://www.leshy.net'>Iwan Groeneveld</a>.
+    </p>
+  </footer>
+
+</body>
+</html>
