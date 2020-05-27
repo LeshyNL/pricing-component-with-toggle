@@ -187,11 +187,15 @@ body {
 }
 
 .chk-payment:checked ~ main .plan-price__monthly {
-  display: none;
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
 }
 
 .chk-payment:checked ~ main .plan-price__annually {
-  display: block;
+  position: initial;
+  left: initial;
+  opacity: 1;
 }
 
 .chk-payment:checked ~ .lbl-payment .lbl-toggle::after {
@@ -250,7 +254,9 @@ body {
 }
 
 .plan-price__annually {
-  display: none;
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
 }
 
 .plan-price {
